@@ -1,9 +1,9 @@
 <?php
 
 $serverurl = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "solarrvp_solarisapp";
+$userName = "solaris_db";
+$password = "solaris_db";
+$dbName = "solaris_db";
 
 $connection = mysqli_connect($serverurl, $userName, $password, $dbName);
 if ($connection) {
