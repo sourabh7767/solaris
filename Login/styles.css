@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 50px;
+}
+
+.phone-image img {
+    width: 100%;
+    max-width: 700px;
+}
+
+.right-section {
+    flex: 1;
+    background-color: transparent;
+    padding: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.login-box {
+    background-color: #2e2e2e;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding: 40px;
+    text-align: center;
+    transform: translateX(-30%) translateY(20%);
+    width: fit-content;
+    height: fit-content;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    font-size: 40px;
+    text-align: left;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.login-box input {
+    width: 400px;
+    height: 35px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #111;
+    border: 1px solid #f6921e;
+    border-radius: 5px;
+    color: #fff;
+    font-size: large;
+}
+
+.login-box p {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #e65c00;
+}
+
+
+.language-dropdown{
+    position: absolute;
+    display: inline-block;
+    left: 85%;
+    top: 10%;
+}
+
+.language-dropdown :hover{
+    background-color: #827248; /* Lighter dark background on hover */
+}
+
+.dropdown-btn{
+    background-color: #282828; /* Dark background */
+    color: white; /* White text color */
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 140px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.selected-icon{
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    margin-right: 10px;
+    border-radius: 50%; /* Optional: round the image */
+}
+
+.dropdown-text {
+    flex: 1;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #282828; /* Dark background */
+    color: white; /* White text color */
+    min-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1;
+    top: 100%; /* Position below the button */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dropdown-content a:hover {
+    background-color: #dab556; /* Lighter dark background on hover */
+    color: #FFCC00; /* Change text color on hover */
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    margin-right: 10px;
+    border-radius: 50%; /* Optional: round the image */
+}

@@ -1,0 +1,1386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #181818;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body * {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #282828;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar li {
+    margin-bottom: 5px;
+    height: 40px;
+    list-style: none;
+    border-radius: 5px;
+    /* Add some rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+    background-color: #282828;
+}
+
+.sidebar li a {
+    display: flex;
+    align-items: center;
+    color: #f0f0f0;
+    /* Light color for text */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    /* Match the border-radius of the list item */
+}
+
+.sidebar ul li a:active {
+
+    background-color: #827248;
+    /* Darker gray for hover */
+    color: red;
+    /* Change text color on hover */
+}
+
+.sidebar li :hover {
+    background-color: #827248;
+    /* Darker gray for hover */
+    color: #FFCC00;
+    /* Change text color on hover */
+}
+
+.sidebar li a .icon {
+    margin-right: 10px;
+    /* Space between icon and text */
+}
+
+
+.sidebar li.divider {
+    border-bottom: 1px solid #444;
+    /* Dark line color */
+    margin: 10px 0;
+    height: 1px;
+    list-style: none;
+    border-radius: 0px;
+}
+
+.rightSlider {
+    height: 100vh;
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #282828;
+    position: fixed;
+    top: 0;
+    width: 82%;
+    z-index: 1000;
+    height: 3rem;
+}
+
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.search-bar {
+    position: absolute;
+    left: 6.49%;
+    right: 61.2%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    /* Add border radius to the search bar */
+    border: 1px solid #444;
+    /* Dark border around the search bar */
+    background-color: #000000;
+    /* Dark background color */
+    overflow: hidden;
+    /* Ensure content does not overflow */
+}
+
+.search-bar-user {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    /* Add border radius to the search bar */
+    border: 1px solid #444;
+    /* Dark border around the search bar */
+    background-color: #484848;
+    /* Dark background color */
+    overflow: hidden;
+    /* Ensure content does not overflow */
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    /* Take up available space */
+    padding: 8px;
+    border: none;
+    /* Remove default border */
+    outline: none;
+    /* Remove default outline */
+    border-radius: 4px;
+    /* Optional: Add border radius to input */
+    background-color: #000000;
+    /* Slightly lighter dark background for the input */
+    color: #fff;
+    /* Text color */
+    box-sizing: border-box;
+    /* Ensure padding is included in the width */
+    text-align: start !important;
+}
+
+.search-bar-user input[type="text"] {
+    flex: 1;
+    /* Take up available space */
+    padding: 8px;
+    border: none;
+    /* Remove default border */
+    outline: none;
+    /* Remove default outline */
+    border-radius: 4px;
+    /* Optional: Add border radius to input */
+    background-color: #484848;
+    /* Slightly lighter dark background for the input */
+    color: #fff;
+    /* Text color */
+    box-sizing: border-box;
+    /* Ensure padding is included in the width */
+}
+
+.search-bar .search-icon,
+.search-bar-user .search-icon {
+    width: 24px;
+    /* Adjust icon size */
+    height: 24px;
+    background: url('search-icon.png') no-repeat center center;
+    /* Path to your search icon */
+    background-size: 16px 16px;
+    /* Adjust icon size */
+    margin: 0 8px;
+    /* Spacing between the icon and the input */
+    display: inline-block;
+}
+
+
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Thin scrollbar width */
+    height: 5px;
+    /* Thin scrollbar height for horizontal scrollbar */
+}
+
+/* Style the track (part the scrollbar moves along) */
+::-webkit-scrollbar-track {
+    background-color: #333;
+    /* Dark track background */
+    border-radius: 10px;
+    /* Rounded corners for the track */
+}
+
+/* Style the handle (part the user drags) */
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    /* Dark thumb color */
+    border-radius: 10px;
+    /* Rounded corners for the thumb */
+}
+
+/* Style the handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+    /* Lighter color on hover */
+}
+
+/* Style the corner of the scrollbar */
+::-webkit-scrollbar-corner {
+    background-color: #333;
+    /* Dark corner background */
+}
+
+
+
+.menu-image {
+    display: block;
+    margin: 0 auto 20px;
+    /* Center the image and add space below */
+    max-width: 100%;
+    /* Make sure it fits within the sidebar */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+
+.language-dropdown {
+    position: absolute;
+    display: inline-block;
+    right: 200px;
+    top: 5px;
+}
+
+.user-btn-container {
+    position: absolute;
+    display: inline-block;
+    right: 30px;
+    top: 5px;
+}
+
+.user-dropdown :hover,
+.language-dropdown :hover,
+.user-btn-container :hover {
+    background-color: #827248;
+    /* Lighter dark background on hover */
+}
+
+.dropdown-btn,
+.user-btn {
+    background-color: #282828;
+    /* Dark background */
+    color: white;
+    /* White text color */
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 140px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.selected-icon,
+.user-btn-icon {
+    width: 24px;
+    /* Adjust size as needed */
+    height: 24px;
+    /* Adjust size as needed */
+    margin-right: 10px;
+    border-radius: 50%;
+    /* Optional: round the image */
+}
+
+.dropdown-text {
+    flex: 1;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    background-color: #282828;
+    /* Dark background */
+    color: white;
+    /* White text color */
+    min-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    top: 100%;
+    /* Position below the button */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.dropdown-content a:hover {
+    background-color: #dab556;
+    /* Lighter dark background on hover */
+    color: #FFCC00;
+    /* Change text color on hover */
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+    width: 24px;
+    /* Adjust size as needed */
+    height: 24px;
+    /* Adjust size as needed */
+    margin-right: 10px;
+    border-radius: 50%;
+    /* Optional: round the image */
+}
+
+
+.page-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.page-header h3 {
+    font-weight: bold;
+    font-size: 36px;
+    color: #FFCC00;
+    width: fit-content;
+    height: 60px;
+    margin: 0px 0px 0px 0px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 1.5rem;
+}
+
+.card {
+    background: linear-gradient(90deg, #ff6d00, #ffc700);
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(100%/3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+    background-color: #FFB81C;
+    color: white;
+    font-size: 20px;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    /* This aligns the child elements to the sides */
+    align-items: center;
+    /* This vertically centers the items */
+}
+
+.card p {
+    font-size: 30px !important;
+}
+
+.card .state {
+    color: #000000;
+    font-weight: bold;
+}
+
+
+.chart-container {
+    position: relative;
+    width: 97%;
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.chart-container canvas {
+    display: block;
+    width: 100%;
+    height: 400px;
+}
+
+.dropdown-month {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.dropdown-month select {
+    background-color: #2e2e2e;
+    color: white;
+    border: 1px solid #3c3c3c;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+.main {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 10px;
+    width: 96%;
+    padding-top: 5.5rem;
+    /* 440% for dashboard */
+    /* height: 100vh; */
+    padding-bottom: 1rem;
+}
+
+.main iframe {
+    border: none;
+    /* Removes the border */
+    padding: 0;
+    /* Removes padding */
+    margin: 0;
+    /* Removes margin */
+    width: 100%;
+    /* Adjust as needed */
+    height: 100%;
+    /* Adjust as needed */
+}
+
+.table {
+    background-color: #383838;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.table-user {
+    background-color: #383838;
+    border-radius: 8px;
+}
+
+
+.table table td:last-child div {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.user-delete-btn,
+.user-edit-btn {
+    background-color: #484848;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 1.5rem;
+    height: 1.5rem;
+
+}
+
+.user-edit-btn,
+.user-delete-btn {
+    background-color: #484848;
+    border-radius: 10px;
+    padding: 5px 5px;
+    cursor: pointer;
+    text-decoration: none;
+    /* width: 2rem; */
+    /* height: 2rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.user-edit-btn svg {
+    width: 75%;
+    height: 75%;
+}
+
+.table h2 {
+    margin-bottom: 10px;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #484848;
+}
+
+.table th {
+    background-color: #282828;
+}
+
+table tbody tr td:last-child a {
+    cursor: pointer !important;
+}
+
+table tbody tr td:last-child button {
+    cursor: pointer !important;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+table tbody tr td:last-child div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.userAccountStatus .Pendiente {
+    color: white !important;
+    background-color: orange !important;
+    padding: 3px 5px;
+}
+
+.userAccountStatus .Inactivo {
+    color: white !important;
+    background-color: red !important;
+    padding: 3px 5px;
+}
+
+.userAccountStatus .Activo {
+    width: fit-content;
+    padding: 3px 5px;
+    color: white !important;
+    background-color: green !important;
+}
+
+tr:hover {
+    background-color: #484848;
+}
+
+.table-head-start {
+    border-radius: 10px 0px 0px 0px;
+}
+
+.table-head-end {
+    border-radius: 0px 10px 0px 0px;
+}
+
+.table .status {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.table .Completado {
+    background-color: #4CAF50;
+}
+
+.table .completado {
+    background-color: #4CAF50;
+}
+
+.table .completed {
+    background-color: #4CAF50;
+}
+
+.table .Completed {
+    background-color: #4CAF50;
+}
+
+.table .Pendiente {
+    background-color: orange;
+}
+
+.table .pendiente {
+    background-color: orange;
+}
+
+.table .pending {
+
+    background-color: orange;
+}
+
+.table .status.failed {
+    background-color: #F44336;
+}
+
+.table .status.Failed {
+    background-color: #F44336;
+}
+
+.table .status.Rechazado {
+    background-color: #F44336;
+}
+
+.table .status.Rejected {
+    background-color: #F44336;
+}
+
+.table .status.rechazado {
+    background-color: #F44336;
+}
+
+.table .status.rejected {
+    background-color: #F44336;
+}
+
+.personal-info,
+.account-info,
+.settings-info {
+    background-color: #2d2d2d;
+    /* Slightly lighter dark background for the form container */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: block;
+    gap: 20px;
+    /* Space between grid items */
+    margin-top: 20px;
+}
+
+.personal-info button[type="submit"],
+.account-info button[type="submit"],
+.settings-info button[type="submit"] {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 14px;
+    background-color: #ff6600;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 35%;
+}
+
+.personal-info button[type="submit"]:hover,
+.account-info button[type="submit"]:hover,
+.settings-info button[type="submit"]:hover {
+    background-color: #e65c00;
+    /* Darker orange on hover */
+}
+
+
+.trans-details-popup {
+    background-color: #2d2d2d;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 49%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    gap: 20px;
+    width: 800px;
+}
+
+/* Optional: Overlay background to dim the rest of the content */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background */
+    z-index: 999;
+    /* Behind the popup */
+    display: none;
+    /* Initially hidden */
+}
+
+.trans-details-popup .cancel-btn {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 14px;
+    background-color: #383838;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 20%;
+}
+
+.trans-details-popup .cancel-btn:hover {
+    background-color: #484848;
+    /* Darker orange on hover */
+}
+
+.trans-details-popup button[type="submit"] {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 14px;
+    background-color: #ff6600;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 20%;
+}
+
+.trans-details-popup button[type="submit"]:hover {
+    background-color: #e65c00;
+    /* Darker orange on hover */
+}
+
+
+.personal-info h2,
+.account-info h2 {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 24px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    /* This aligns the child elements to the sides */
+    margin: 20px;
+}
+
+.form-group-pair {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.form-group label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #cccccc;
+    /* Light gray color for labels */
+}
+
+.form-group input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    /* Border for input fields */
+    background-color: #1c1c1c;
+    /* Dark background color for input fields */
+    color: #ffffff;
+    /* White text color in input fields */
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.form-group select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    /* Border for input fields */
+    background-color: #1c1c1c;
+    /* Dark background color for input fields */
+    color: #ffffff;
+    /* White text color in input fields */
+    box-sizing: border-box;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-group .btn-container {
+    display: flex;
+    justify-content: space-around;
+    /* Center horizontally */
+    margin-top: 20px;
+    /* Optional: Add space above the button */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff6600;
+    /* Orange border on focus */
+}
+
+/* Button Styling */
+.form-group button[type="submit"] {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 14px;
+    background-color: #ff6600;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    right: 35%;
+    left: 35%;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #e65c00;
+    /* Darker orange on hover */
+}
+
+
+/* Datepicker popup styling */
+.datepicker-popup {
+    display: none;
+    /* Initially hidden */
+    position: fixed;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* order-status-sort popup styling */
+.order-status-sort {
+    display: none;
+    /* Initially hidden */
+    position: fixed;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 400px;
+}
+
+/* email-sort popup styling */
+.email-sort {
+    display: none;
+    /* Initially hidden */
+    position: fixed;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.email-sort input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    /* Border for input fields */
+    background-color: #1c1c1c;
+    /* Dark background color for input fields */
+    color: #ffffff;
+    /* White text color in input fields */
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+
+/* Buttons inside the popup */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popup-buttons .cancel-btn {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 5px;
+    background-color: #383838;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    right: 18%;
+}
+
+.order-status-sort .status-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.order-status-sort .status-buttons button {
+    width: 190px;
+    /* Button width relative to the form */
+    height: fit-content;
+    padding: 10px;
+    background-color: #383838;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.cancel-btn {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 5px;
+    background-color: #383838;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    right: 18%;
+}
+
+.popup-buttons .cancel-btn:hover,
+.order-status-sort .status-buttons button:hover {
+    background-color: #484848;
+    /* Darker orange on hover */
+}
+
+/* Button Styling */
+.popup-buttons .saveBtn {
+    width: 30%;
+    /* Button width relative to the form */
+    padding: 5px;
+    background-color: #ff6600;
+    /* Orange background color for the button */
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 18%;
+}
+
+.popup-buttons .saveBtn :hover {
+    background-color: #e65c00;
+    /* Darker orange on hover */
+}
+
+.datepicker-popup input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    /* Border for input fields */
+    background-color: #1c1c1c;
+    /* Dark background color for input fields */
+    color: #ffffff;
+    /* White text color in input fields */
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+/* General Calendar Styling */
+.flatpickr-calendar {
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    background: transparent;
+}
+
+/* Month and Year Header */
+.flatpickr-month {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    /* Add styling for month and year display as needed */
+}
+
+/* Weekday Headers */
+.flatpickr-weekday {
+    text-align: center;
+    font-weight: bold;
+    /* Adjust font size and padding as needed */
+}
+
+/* Calendar Days */
+.flatpickr-day {
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+/* Disabled Days */
+.flatpickr-day.disabled {
+    color: #ffffff;
+    cursor: default;
+}
+
+/* Selected Day */
+.flatpickr-day.selected {
+    background-color: #ff6600;
+    border: none;
+    /* Add other styling for selected day */
+}
+
+/* Selected Day */
+.flatpickr-day.selected:hover {
+    background-color: #ff6600;
+    border: none;
+    /* Add other styling for selected day */
+}
+
+.flatpickr-day:hover {
+    background-color: #484848;
+    border: none;
+}
+
+/* Today's Date */
+.flatpickr-day.today {
+    background-color: #444;
+    border: none;
+}
+
+.flatpickr-day.today:hover {
+    background-color: #444;
+    border: none;
+}
+
+.flatpickr-current-month {
+    color: white;
+}
+
+.flatpickr-weekdays {
+    background-color: #444444;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay {
+    color: #ffffff7c;
+}
+
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day.prevMonthDay:hover {
+    background-color: #484848;
+    border: none;
+}
+
+.flatpickr-monthDropdown-months option {
+    color: #000000;
+    cursor: pointer;
+}
+
+.toastModal {
+    width: fit-content;
+    position: fixed;
+    top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    font-size: 18px;
+    border-radius: 8px;
+    right: 1rem;
+    padding: 10px 10px;
+    background: var(--toasterModalBackColor);
+    color: white;
+    animation: modalopener 0.5s;
+    z-index: 99999;
+}
+
+@keyframes modalopener {
+    from {
+        right: -60rem;
+    }
+
+    to {
+        right: 1rem;
+    }
+}
+
+.toastModal button:last-child {
+    font-size: 31px !important;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.closeModal {
+    animation: ModalCloser 0.5s 1;
+    width: fit-content;
+    position: fixed;
+    top: 1rem;
+    z-index: 999999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    font-size: 18px;
+    border-radius: 8px;
+    right: -60rem;
+    padding: 10px 10px;
+    background-color: var(--toasterModalBackColor);
+    color: white;
+}
+
+.closeModal button:last-child {
+    font-size: 31px !important;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+@keyframes ModalCloser {
+    from {
+        right: 1rem;
+    }
+
+    to {
+        right: -100rem;
+    }
+}
+
+
+input:disabled {
+    cursor: not-allowed !important;
+    color: gray !important;
+}
+
+.form-group input:read-only {
+    cursor: not-allowed !important;
+    color: gray !important;
+}
+
+#modalerrorInput {
+    color: rgb(243, 122, 122) !important;
+}
+
+button:disabled {
+    background-color: gray !important;
+    color: white !important;
+    cursor: not-allowed !important;
+}
+
+.activesidebar {
+    background-color: #827248;
+    /* Darker gray for hover */
+    color: #FFCC00;
+}
+
+/* toaster style */
+
+button {
+    background-color: darkslategrey;
+    color: white;
+    border: 0;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 7px;
+    padding: 10px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#toast-container div {
+    background-color: green !important;
+    opacity: 1 !important;
+}
+
+#success {
+    background: black !important;
+}
+
+#error {
+    background: red;
+}
+
+#warning {
+    background: yellow;
+}
+
+#info {
+    background: cornflowerblue;
+}
+
+#question {
+    background: grey;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999999999;
+    background-color: rgba(128, 128, 128, 0.508);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dt-container .dt-paging .dt-paging-button {
+    color: white !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button.disabled,
+div.dt-container .dt-paging .dt-paging-button.disabled:hover,
+div.dt-container .dt-paging .dt-paging-button.disabled:active {
+    color: white !important;
+
+}
+
+
+.popupModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background-color: #8080807d;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalBody {
+    width: 24rem;
+    height: 14rem;
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    border-radius: 13px;
+}
+
+.modalBody .modalHeading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFCC00;
+
+}
+
+.modalBody .modalAction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modalBody .modalAction button:first-child {
+    background-color: red !important;
+    color: white;
+}
+
+.sidebar li a span {
+    padding-bottom: 10px !important;
+}
+
+.sidebar li a .icon {
+    display: flex;
+    align-items: center;
+}
+
+#otpInputAdminSetting,#appSetting {
+    width: 14rem;
+    height: 2.5rem;
+    border-radius: 6px;
+    outline: none;
+    border: 2px solid black;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.viewPassword {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.viewPassword label {
+    margin: 0;
+    cursor: pointer !important;
+}
+
+.viewPassword input[type="checkbox"] {
+    cursor: pointer !important;
+    height: 1rem;
+    width: 1rem;
+}
+
+.dt-layout-cell,
+.dt-layout-full {
+    overflow-x: scroll !important;
+}
