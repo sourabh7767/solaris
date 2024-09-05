@@ -121,12 +121,9 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
                     
                       <div class='form-group'>
                           <div class='form-group-pair'>
-                              <label for='transaction_duration'>Transaction Duration</label>
-                              <select name='transaction_duration'  id='transaction_duration' class='transaction_duration'>
-                                  <option value='" . FIVE_BUSSINESS_DAY . "'>5 business days</option>
-                                  <option value='" . THREE_BUSSINESS_DAY . "'>3 business days</option>
-                                  <option value='" . SIX_HOURS_MAX . "'>6 hours maximum</option>
-                              </select>
+                              <label for='address'>Transaction Duration</label>
+                              <input type='text' value='' id='withdrawl_fee' readonly name='address'
+                                  class='editWithdrawalInput'>
                           </div>
                        
                       </div>
@@ -161,14 +158,13 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
                                   <th style='text-align:left;'>Email</th>
                                   <th style='text-align:left;'>Date</th>
                                   <th style='text-align:left;'>Amount</th>
-                                  <th style='text-align:left;'>Transaction Duration</th>
                                   <th  style='text-align:left;'>Status</th>
                                   <th class='table-head-end' style='text-align:left;'>Action</th>
                               </tr>
                           </thead>
                           <tbody>";
     require("../Connections/Db.php");
-    $withdrawal_sql = "SELECT User.Name,Withdrawal.ID,Withdrawal.Email,Withdrawal.Date,Withdrawal.Amount,Withdrawal.Status,Withdrawal.Hash,Withdrawal.Grid,Withdrawal.Crypto,Withdrawal.Address,Withdrawal.transaction_duration FROM Withdrawal INNER JOIN User ON Withdrawal.Email=User.Email  WHERE Withdrawal.Status='Pendiente'";
+    $withdrawal_sql = "SELECT User.Name,Withdrawal.ID,Withdrawal.Email,Withdrawal.Date,Withdrawal.Amount,Withdrawal.Status,Withdrawal.Tarifa,Withdrawal.Hash,Withdrawal.Grid,Withdrawal.Crypto,Withdrawal.Address FROM Withdrawal INNER JOIN User ON Withdrawal.Email=User.Email  WHERE Withdrawal.Status='Pendiente'";
     $withdrawal_result = mysqli_query($connection, $withdrawal_sql);
     if ($withdrawal_result) {
         while ($row = mysqli_fetch_assoc($withdrawal_result)) {
@@ -180,7 +176,6 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
             $date = $row["Date"];
             $amount = $row["Amount"];
             // $transactionFee = $row["transaction_fee"];
-            $transactionDuration = $row["transaction_duration"];
             $status = $row["Status"];
             echo "<tr>
                                             <td style='text-align:left;'>$id</td>
@@ -188,7 +183,6 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
                                             <td style='text-align:left;'>$email</td>
                                             <td style='text-align:left;'>$date</td>
                                             <td style='text-align:left;'>$ $amount</td>
-                                            <td style='text-align:left;'>".getNameFromConstant($transactionDuration)."</td>
                                             <td style='text-align:left;'><span class='status $status'>$status</span></td>
                                             <td style='text-align:left;'>
                                             <div>
@@ -308,6 +302,8 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
         popup.style.display = 'block';
         overlay.style.display = 'block';
         const editWithdrawalInput = document.querySelectorAll('.editWithdrawalInput')
+        const transactionDuration = document.getElementById('withdrawl_fee')
+        console.log('=============>',editWithdrawalInput);
         editWithdrawalInput[0].value = data.ID !== undefined ? data.ID : ''
         editWithdrawalInput[1].value = data.Amount !== undefined ? data.Amount : ''
         editWithdrawalInput[2].value = data.Address !== undefined ? data.Address : ''
@@ -317,6 +313,7 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
         editWithdrawalInput[6].value = data.Date !== undefined ? data.Date : ''
         editWithdrawalInput[7].value = data.Status !== undefined ? data.Status : ''
         editWithdrawalInput[8].value = data.Hash !== undefined ? data.Hash : ''
+        transactionDuration.value = data.Tarifa !== undefined ? data.Tarifa : ''
 
     }
     function closeEmailSortPopup() {

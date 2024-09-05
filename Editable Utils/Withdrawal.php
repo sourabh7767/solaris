@@ -16,10 +16,6 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
         $date = mysqli_real_escape_string($connection, $_POST['date']);
         $amount = mysqli_real_escape_string($connection, $_POST['amount']);
         $status = mysqli_real_escape_string($connection, $_POST['status']);
-        // laksh start 
-        // $transactionFee = mysqli_real_escape_string($connection, $_POST['transaction_fee']);
-        $transactionDuration = mysqli_real_escape_string($connection, $_POST['transaction_duration']);
-        // end laksh
 
         $hash = mysqli_real_escape_string($connection, $_POST['hash']);
         echo $status;
@@ -32,7 +28,7 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
                 $fee = $row["Fee"];
             }
             echo $fee;
-            $sql = "UPDATE `User`,Withdrawal  SET User.Total_Balance=User.Total_Balance+$amount+$fee,Withdrawal.Email='$email',Withdrawal.ID='$id',Withdrawal.Date='$date',Withdrawal.Amount='$amount',Withdrawal.Status='$status',Withdrawal.Hash='$hash',Withdrawal.transaction_duration='$transactionDuration'
+            $sql = "UPDATE `User`,Withdrawal  SET User.Total_Balance=User.Total_Balance+$amount+$fee,Withdrawal.Email='$email',Withdrawal.ID='$id',Withdrawal.Date='$date',Withdrawal.Amount='$amount',Withdrawal.Status='$status',Withdrawal.Hash='$hash'
              WHERE User.Email='$email' AND Withdrawal.Email='$email' AND `ID`='$id';";
             $result = mysqli_query($connection, $sql);
             if ($result) {

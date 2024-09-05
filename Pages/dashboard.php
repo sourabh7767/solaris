@@ -122,9 +122,12 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
     $result = mysqli_query($connection, $sql);
     $blockedUser = mysqli_fetch_assoc($result); 
 // transfer total
-    $sql = "SELECT sum('Opration_Balance') as 'trasaction_total' FROM `User`";
+    $sql = "SELECT SUM(Operation_Balance) AS `Operation_Balance` FROM `User`";
     $result = mysqli_query($connection, $sql);
     $transactionTotal = mysqli_fetch_assoc($result); 
+    // echo'<pre>';
+    // print_r($transactionTotal);
+    // die;
 // Transaction Total
     // $sql = "SELECT count(*) FROM `User` WHERE `Status` = 'Activo'";
     // $result = mysqli_query($connection, $sql);
@@ -145,7 +148,7 @@ if ($_SESSION["logedin"] === true && isset($_SESSION["logedin"])) {
                 <h3>Transaction Total</h3>
                 <img src='../Assets/Icons/withdraw.svg' alt='User' class='icon'>
             </div>
-            <p>" . $transactionTotal['trasaction_total'] . "</p>
+            <p>" . $transactionTotal['Operation_Balance'] . "</p>
         </div>
         <div class='card'>
             <div class='card-head'>
